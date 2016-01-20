@@ -92,5 +92,7 @@
   </Settings>
   <VirtualDirectory Name="src">
     <File Name="main.cpp"/>
+    <File Name="Picareta.h"/>
+    <File Name="Picareta.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>
