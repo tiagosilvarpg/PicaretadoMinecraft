@@ -6,7 +6,7 @@ int main(int argc, char **argv)
 {
 	Picareta ferramenta;
     
-    printf("hello world\n");
+    printf("voce ganhou uma picareta\n");
     ferramenta.mostrarDurabilidade();    
 	return 0;
 }
