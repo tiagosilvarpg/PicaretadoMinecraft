@@ -45,7 +45,8 @@ int Picareta::initDurabilidade()
      if (material=="diamante")
      { durabilidade= 1561;
        forca=10;
-     }                                
+     }
+    return durabilidade;                                
 }
 int Picareta::mostrarDurabilidade()
 {
