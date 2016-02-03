@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <conio.h>
+#include <conio2.h>
 #include "Mapa.h"
 #include "Bloco.h"
 //MAPA

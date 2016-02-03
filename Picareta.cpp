@@ -2,9 +2,11 @@
 #include "Bloco.h"
 #include <iostream>
 #include <string>
-#include <conio.h>
+#include <conio2.h>
 
 using namespace std;
+//estaticos
+int Picareta::preco=10;
 //Construtores
 Picareta::Picareta()
 {
@@ -23,29 +25,44 @@ Picareta::Picareta(const string & str)
     initDurabilidade();//depois usara um metodo statico para definir o valor
     cout<<"voce ganhou uma picareta de "<<material<<endl;
 }
-//METODOS DA CLASSSE
+Picareta::Picareta(const Picareta & original)
+{
+    this.material=original.material;
+    this.durabilidade=original.durabilidade;
+    this.forca=original.forca;
+}
+
 int Picareta::initDurabilidade()
 {
-     if (material=="ouro")
-     { durabilidade= 32;
-       forca=12;
+     switch (material)
+     {
+         case ("ouro")
+         { durabilidade= 32;
+           forca=12;
+           return durabilidade;
+         }
+         case ("madeira")
+         { durabilidade= 59;
+           forca=4;
+           return durabilidade;
+         }
+         case ("pedra")
+         {  durabilidade= 131;
+            forca=6;
+            return durabilidade;
+         }
+         case ("ferro") 
+         {  durabilidade= 250;
+            forca=8;
+            return durabilidade;
+         }
+         case ("diamante")
+         { durabilidade= 1561;
+           forca=10;
+           return durabilidade;
+         }
      }
-     if (material=="madeira")
-     { durabilidade= 59;
-       forca=4;
-     }
-     if (material=="pedra")
-     {  durabilidade= 131;
-        forca=6;
-     }
-     if (material=="ferro") 
-     {  durabilidade= 250;
-        forca=8;
-     }
-     if (material=="diamante")
-     { durabilidade= 1561;
-       forca=10;
-     }
+
     return durabilidade;                                
 }
 int Picareta::mostrarDurabilidade()

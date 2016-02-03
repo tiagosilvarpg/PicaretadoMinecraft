@@ -9,11 +9,14 @@ class Picareta
     private:
     string material;
     int durabilidade;
-    int forca; 
+    int forca;
+    
+    static int preco;
     
     public:
     Picareta();
     Picareta(const string &);
+    Picareta(const Picareta &);
     int initDurabilidade();//define a durabilidade dependendo do tipo,retorna o valor maximo
     bool atacar( Bloco &);
     bool consertar( Picareta &);
