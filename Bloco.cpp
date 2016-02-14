@@ -18,28 +18,30 @@ void Bloco::imprimir()
 {
      
     
-     textcolor(cor);
-     if (resistencia==0)
-        cout<<"__";
+     
+     if (resistencia!=0)
+     {
+        textcolor(cor);
+        cout<<(char)178;//imprime o simbolo 178 da tabela ascii
+     }
      else
-         cout<<"[]";
+     {
+         textcolor(0);
+         cout<<(char)176;//imprime o simbolo 176 da tabela ascii
+     }
      textcolor(15);    
 }
 bool Bloco::damage(int forca)
 {
       if (resistencia!=0)
       {
-         cout<<"minerando..."<<endl;
-         Sleep(resistencia*1000/forca);
-         cout<<(resistencia*1000/forca)/1000<<"segundos para destruir"<<endl;
-         resistencia=0;
+         Sleep(resistencia*200/forca);
+         cout<<(resistencia*200/forca)/1000<<"segundos para destruir"<<endl;
+         this->init("ar");         
          return true;
       }
       else 
-      {
-           cout<<"espaco vazio"<<endl;
-           return false;
-       }
+      return false;
            
 }   
 void Bloco::init(const string & mtr)
@@ -71,4 +73,10 @@ void Bloco::init(const string & mtr)
        resistencia= 80;
        cor=9;
      }                                  
+}
+bool Bloco::isAir()
+{
+     if (material=="ar")
+     return true;
+     return false;
 }

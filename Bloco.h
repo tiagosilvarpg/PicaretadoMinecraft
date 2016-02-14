@@ -13,6 +13,7 @@ class Bloco
     bool damage(int);
     void imprimir();
     void init(const string &);
+    bool isAir();
     Bloco(string);
     Bloco();
 };

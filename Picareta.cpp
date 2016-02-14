@@ -27,42 +27,38 @@ Picareta::Picareta(const string & str)
 }
 Picareta::Picareta(const Picareta & original)
 {
-    this.material=original.material;
-    this.durabilidade=original.durabilidade;
-    this.forca=original.forca;
+    this->material=original.material;
+    this->durabilidade=original.durabilidade;
+    this->forca=original.forca;
 }
 
 int Picareta::initDurabilidade()
 {
-     switch (material)
-     {
-         case ("ouro")
+    if  (material=="ouro")
          { durabilidade= 32;
            forca=12;
            return durabilidade;
          }
-         case ("madeira")
+    else if  (material=="madeira")
          { durabilidade= 59;
            forca=4;
            return durabilidade;
          }
-         case ("pedra")
+    else if  (material=="pedra")
          {  durabilidade= 131;
             forca=6;
             return durabilidade;
          }
-         case ("ferro") 
+    else if  (material=="ferro") 
          {  durabilidade= 250;
             forca=8;
             return durabilidade;
          }
-         case ("diamante")
+    else if  (material=="diamante")
          { durabilidade= 1561;
            forca=10;
            return durabilidade;
          }
-     }
-
     return durabilidade;                                
 }
 int Picareta::mostrarDurabilidade()
@@ -75,10 +71,12 @@ bool Picareta::atacar( Bloco & target )
 {
     if (durabilidade==0) 
     {  cout<<"sua picareta esta quebrada";
-       return false;
+       return true;
     }
     if (target.damage(forca))
-       cout<<"bloco destruido"<<endl;
+    {
+       durabilidade-=1;
+    }
     return true;
 }
 bool Picareta::consertar(Picareta & target)

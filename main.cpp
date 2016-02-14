@@ -3,6 +3,7 @@
 #include "Picareta.h"
 #include "Bloco.h"
 #include "Mapa.h"
+#include <conio2.h>
 int main()
 {
 	string str;
@@ -18,18 +19,16 @@ int main()
     {
     system("cls");
     mundo.refresh();
-    cout<<"=escolha uma acao="<<endl;
-    cout<<"d-atacar direito"<<endl;
-    cout<<"a-atacar esquerdo"<<endl;    
-    cout<<"x-sair"<<endl;
-    cin>>op;
-    if (op=='d')
-    ferramenta.atacar(mundo.bloco(+1));
-    else if (op=='a')
-        ferramenta.atacar(mundo.bloco(-1));
-    system("pause");
+    cout <<"mover(a,s,d,w),sair(x)="<<endl;
+    cout <<"durabilidade=";
+    ferramenta.mostrarDurabilidade();
+    op=getch();
+    if ((op=='d')||(op=='a')||(op=='w')||(op=='s'))
+    {
+       ferramenta.atacar(mundo.getBloco(op));
+       mundo.movePlayer(op);
     }
-    cout<<"tchau!!!"<<endl;    
+    } 
 	return 0;
 }
 
