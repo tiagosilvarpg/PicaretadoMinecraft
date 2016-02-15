@@ -14,6 +14,10 @@ Bloco::Bloco()
  material="pedra";
  init(material);
 }
+static void Bloco::limparTudo()
+{
+    resistencia=0;
+}
 void Bloco::imprimir()
 {
      

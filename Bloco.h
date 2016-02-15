@@ -12,6 +12,7 @@ class Bloco
     public:
     bool damage(int);
     void imprimir();
+    static void limparTudo();
     void init(const string &);
     bool isAir();
     Bloco(string);
