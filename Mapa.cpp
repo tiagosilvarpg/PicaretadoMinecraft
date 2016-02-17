@@ -1,10 +1,15 @@
 #include <iostream>
 #include <string>
-#include <conio2.h>
+//#include <conio2.h>
 #include "Mapa.h"
 #include "Bloco.h"
 //MAPA
 int Mapa::size=20;
+void Mapa::changeMapSize( int temp)
+{
+    if (temp>8 && temp<40)
+    size=temp;
+}
 Mapa::Mapa(const string & str)
 {
  int i,j,letra;
@@ -18,32 +23,29 @@ Mapa::Mapa(const string & str)
  letra=0; 
  for (j=0;j<size;j++)
       for (i=0;i<size;i++)
-      if (letra<str.length())
- {   
-     
-     
-     if (str[letra]=='f')
-        grid[i][j].init("ferro");
-     else if (str[letra]=='o')
-          grid[i][j].init("ouro");
-     else if (str[letra]=='d')
-          grid[i][j].init("diamante");
-     else if (str[letra]=='i')
-         {
-         grid[i][j].init("ar");//se houver mais de um i todos seram vazio mas o ultimo sera o inicio
-         playerX=i;
-         playerY=j;
+      if ((unsigned int)letra<str.length())
+         {   
+             if (str[letra]=='f')
+                grid[i][j].init("ferro");
+             else if (str[letra]=='o')
+                  grid[i][j].init("ouro");
+             else if (str[letra]=='d')
+                  grid[i][j].init("diamante");
+             else if (str[letra]=='i')
+                 {
+                 grid[i][j].init("ar");//se houver mais de um i todos seram vazio mas o ultimo sera o inicio
+                 playerX=i;
+                 playerY=j;
+                 }
+             else 
+                  grid[i][j].init("pedra");
+             letra++;     
          }
-     else 
-          grid[i][j].init("pedra");
-     letra++;     
- }
  grid[playerX][playerY].init("ar");//garante que nao haja bloco no inicio caso ele nao seja especificado; 
 }
 Mapa::Mapa()
 {
  int i,j;
- tamanho=size;
  grid=new Bloco*[size];
  for (i=0;i<size;i++)
      grid[i]=new Bloco[size];
@@ -62,9 +64,9 @@ void Mapa::refresh()
      for (i=0;i<size;i++)
      {    if (i==playerX && j==playerY)
           {
-             textcolor(15);
+             //textcolor(15);
              cout<<'\2';
-             textcolor(15);
+             //textcolor(15);
           }
           else grid[i][j].imprimir();
           

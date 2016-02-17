@@ -2,7 +2,7 @@
 #include <iostream>
 #include<windows.h>
 #include <string>
-#include <conio2.h>
+//#include <conio2.h>
 using namespace std;//BLOCO
 Bloco::Bloco(string str)
 {
@@ -14,10 +14,7 @@ Bloco::Bloco()
  material="pedra";
  init(material);
 }
-static void Bloco::limparTudo()
-{
-    resistencia=0;
-}
+
 void Bloco::imprimir()
 {
      
@@ -25,15 +22,15 @@ void Bloco::imprimir()
      
      if (resistencia!=0)
      {
-        textcolor(cor);
+        //textcolor(cor);
         cout<<(char)178;//imprime o simbolo 178 da tabela ascii
      }
      else
      {
-         textcolor(0);
+         //textcolor(0);
          cout<<(char)176;//imprime o simbolo 176 da tabela ascii
      }
-     textcolor(15);    
+     //textcolor(15);    
 }
 bool Bloco::damage(int forca)
 {

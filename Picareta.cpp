@@ -2,7 +2,7 @@
 #include "Bloco.h"
 #include <iostream>
 #include <string>
-#include <conio2.h>
+//#include <conio2.h>
 
 using namespace std;
 //estaticos

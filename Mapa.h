@@ -7,12 +7,13 @@ class Mapa
 {
     private:
     Bloco **grid;
-    int tamanho,playerX,playerY;
+    int playerX,playerY;
     static int size;
     
     public:    
     Mapa();
     Mapa(const string &);
+    static void changeMapSize(int);
     int getPlayerX();
     int getPlayerY();
     void refresh();

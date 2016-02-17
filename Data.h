@@ -1,12 +1,12 @@
 #ifndef DATA_H
 #define DATA_H
 
-class data
+class Data
 {
 public:
-    data(int=1,int=1,int=1800);
+    Data(int=1,int=1,int=1800);
     void  print()const;
-    ~data();
+    ~Data();
 private:
     int month,day,year;    
     int checkDay(int) const;

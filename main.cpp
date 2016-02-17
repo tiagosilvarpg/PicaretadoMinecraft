@@ -3,7 +3,9 @@
 #include "Picareta.h"
 #include "Bloco.h"
 #include "Mapa.h"
-#include <conio2.h>
+#include <windows.h>
+
+
 int main()
 {
 	string str;
@@ -22,12 +24,19 @@ int main()
     cout <<"mover(a,s,d,w),sair(x)="<<endl;
     cout <<"durabilidade=";
     ferramenta.mostrarDurabilidade();
-    op=getch();
+    cin>>op;
+    //op=getch();
     if ((op=='d')||(op=='a')||(op=='w')||(op=='s'))
     {
        ferramenta.atacar(mundo.getBloco(op));
        mundo.movePlayer(op);
     }
+    if (op=='t')
+        {   
+            int temp;
+            cin>>temp;
+            Mapa::changeMapSize(temp);
+        }
     } 
 	return 0;
 }
