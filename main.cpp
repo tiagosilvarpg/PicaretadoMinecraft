@@ -9,10 +9,11 @@
 int main()
 {
 	string str;
+    Data data(17,02,2016);
     char op;
     cout<<"insira uma cadeia de blocos (ouro=0,pedra=p,ferro=f,diamante=d,inicio=i)"<<endl;
     cin>>str;
-    Mapa  mundo(str);
+    Mapa  mundo(str,data);
     cout<<"insira uma material para a picareta (pedra,diamante,ouro,ferro,madeira)"<<endl;
     cin>>str;
     Picareta ferramenta(str);

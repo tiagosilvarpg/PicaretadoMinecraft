@@ -10,9 +10,11 @@ void Mapa::changeMapSize( int temp)
     if (temp>8 && temp<40)
     size=temp;
 }
-Mapa::Mapa(const string & str)
+
+Mapa::Mapa(const string & str,const Data & data )
+:creationTime(data)
 {
- int i,j,letra;
+int i,j,letra;
  //inicializar
  playerX=0;
  playerY=0;
@@ -43,7 +45,8 @@ Mapa::Mapa(const string & str)
          }
  grid[playerX][playerY].init("ar");//garante que nao haja bloco no inicio caso ele nao seja especificado; 
 }
-Mapa::Mapa()
+Mapa::Mapa(const Data & data )
+:creationTime(data)
 {
  int i,j;
  grid=new Bloco*[size];
