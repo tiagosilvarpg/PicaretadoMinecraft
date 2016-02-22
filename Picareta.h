@@ -12,6 +12,7 @@ class Picareta
     int durabilidade;
     int forca;
     Spell *feitico;
+    int nfeitico;
     
     static int preco;
     
@@ -19,8 +20,10 @@ class Picareta
     Picareta();
     Picareta(const string &);
     Picareta(const Picareta &);
+
     int initDurabilidade();//define a durabilidade dependendo do tipo,retorna o valor maximo
     bool atacar( Bloco &);
+    bool encantar(Spell &)
     bool consertar( Picareta &);
     int mostrarDurabilidade();
 };

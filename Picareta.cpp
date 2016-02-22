@@ -10,12 +10,14 @@ int Picareta::preco=10;
 //Construtores
 Picareta::Picareta()
 {
-    material="madeira";    
+    material="madeira";
+    feitico=0;    
     initDurabilidade();
     cout<<"voce ganhou uma picareta de "<<material<<endl;
 }
 Picareta::Picareta(const string & str)
 {
+    feitico=0;
     if (str=="madeira" || str=="pedra" || str=="ferro" || str=="ouro" || str=="diamante")
         material=str;
     else 
@@ -27,6 +29,10 @@ Picareta::Picareta(const string & str)
 }
 Picareta::Picareta(const Picareta & original)
 {
+    int i;
+    feitico= new feitico
+    for (i=0;i<=nfeiticos;i++)
+        this.feitico[i]=original.feitico[i];
     this->material=original.material;
     this->durabilidade=original.durabilidade;
     this->forca=original.forca;
