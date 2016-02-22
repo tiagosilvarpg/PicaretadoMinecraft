@@ -2,6 +2,7 @@
 #define PICARETA_H
 #include <string>
 #include "Bloco.h"
+#include "Spell.h"
 using namespace std;
 
 class Picareta
@@ -10,6 +11,7 @@ class Picareta
     string material;
     int durabilidade;
     int forca;
+    Spell *feitico;
     
     static int preco;
     

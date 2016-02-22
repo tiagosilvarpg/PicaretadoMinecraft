@@ -162,7 +162,10 @@ Mapa::~Mapa()
 {
  int i;
  for (i=0;i<size;i++)
- delete[]grid[i];
+ delete[] grid[i];
+
+ //delete[] grid;
+ //delete[][] grid;
 }
 int Mapa::getPlayerX()
 {
