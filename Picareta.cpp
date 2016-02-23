@@ -1,5 +1,6 @@
 #include "Picareta.h"
 #include "Bloco.h"
+#include "Spell.h"
 #include <iostream>
 #include <string>
 //#include <conio2.h>
@@ -11,13 +12,15 @@ int Picareta::preco=10;
 Picareta::Picareta()
 {
     material="madeira";
-    feitico=0;    
+    feitico=0;
+    nfeitico=0;    
     initDurabilidade();
     cout<<"voce ganhou uma picareta de "<<material<<endl;
 }
 Picareta::Picareta(const string & str)
 {
     feitico=0;
+    nfeitico=0;
     if (str=="madeira" || str=="pedra" || str=="ferro" || str=="ouro" || str=="diamante")
         material=str;
     else 
@@ -30,14 +33,28 @@ Picareta::Picareta(const string & str)
 Picareta::Picareta(const Picareta & original)
 {
     int i;
-    feitico= new feitico
-    for (i=0;i<=nfeiticos;i++)
-        this.feitico[i]=original.feitico[i];
+    this->feitico= new Spell*[original.nfeitico];
+    for (i=0;i<nfeitico;i++)
+        this->feitico[i]=new Spell(*original.feitico[i]);
     this->material=original.material;
     this->durabilidade=original.durabilidade;
     this->forca=original.forca;
+    this->nfeitico=original.nfeitico;
 }
-
+bool Picareta::encantar(const Spell & tipoDeFeitico)
+{
+    //INCREMENTA VETOR
+        int i=0;
+        Spell ** AUX =new Spell*[++nfeitico]; //cria um novo vetor
+        
+        for (i=0;i<nfeitico-1;i++)
+            AUX[i]=feitico[i]; // copia o antigo no novo
+        
+        delete [] feitico; //apaga o antigo
+    //
+    feitico=AUX; //poe o novo no objeto
+    feitico[nfeitico-1]=new Spell(tipoDeFeitico);
+}
 int Picareta::initDurabilidade()
 {
     if  (material=="ouro")
@@ -70,6 +87,10 @@ int Picareta::initDurabilidade()
 int Picareta::mostrarDurabilidade()
 {
     cout<<"restam "<<durabilidade<<" usos"<<endl;
+    int i;
+    for (i=0;i<nfeitico;i++)
+    cout<<feitico[i]->getNome()<<"("<<feitico[i]->getDuracao()<<")";
+    cout<<endl;
     return durabilidade;
 }
 //INTERACAO COM OUTROS OBJETOS
@@ -81,10 +102,31 @@ bool Picareta::atacar( Bloco & target )
     }
     if (target.damage(forca))
     {
-       durabilidade-=1;
+       Spell *spellTemp=hasSpell("resistente");
+       
+       if (spellTemp!=0)
+       {
+          if (spellTemp->usar())
+             durabilidade-=std::rand()%2;
+          else
+              durabilidade-=1;
+       }
+       else durabilidade-=1;
     }
+    
     return true;
 }
+Spell* Picareta::hasSpell(const string & nome)
+{
+    int i;
+    for (i=0;i<nfeitico;i++)
+    {
+        if ((feitico[i]->getNome())==nome)
+           if (feitico[i]->getDuracao()>0)
+            return (feitico[i]);
+    }
+    return 0;
+    }
 bool Picareta::consertar(Picareta & target)
 {
     if (material==target.material)
@@ -100,6 +142,10 @@ bool Picareta::consertar(Picareta & target)
         cout<<"picaretas nao compativeis";
         return false;
     }    
+}
+Picareta::~Picareta()
+{
+    delete[] feitico;
 }
 
 

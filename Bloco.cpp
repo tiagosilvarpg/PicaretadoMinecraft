@@ -1,6 +1,6 @@
 #include "Bloco.h"
 #include <iostream>
-#include<windows.h>
+#include <windows.h>
 #include <string>
 //#include <conio2.h>
 using namespace std;//BLOCO
@@ -23,12 +23,14 @@ void Bloco::imprimir()
      if (resistencia!=0)
      {
         //textcolor(cor);
-        cout<<(char)178;//imprime o simbolo 178 da tabela ascii
+        //cout<<(char)178;//imprime o simbolo 178 da tabela ascii
+        cout<<material[0];
      }
      else
      {
          //textcolor(0);
-         cout<<(char)176;//imprime o simbolo 176 da tabela ascii
+         //cout<<(char)176;//imprime o simbolo 176 da tabela ascii
+         cout<<" ";
      }
      //textcolor(15);    
 }
@@ -37,7 +39,6 @@ bool Bloco::damage(int forca)
       if (resistencia!=0)
       {
          Sleep(resistencia*200/forca);
-         cout<<(resistencia*200/forca)/1000<<"segundos para destruir"<<endl;
          this->init("ar");         
          return true;
       }

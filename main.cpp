@@ -3,7 +3,7 @@
 #include "Picareta.h"
 #include "Bloco.h"
 #include "Mapa.h"
-#include <windows.h>
+
 
 
 int main()
@@ -38,6 +38,13 @@ int main()
             cin>>temp;
             Mapa::changeMapSize(temp);
         }
+    if (op=='e')
+       {
+       Spell spellTemp;
+       ferramenta.encantar(spellTemp);
+       cout<<"picareta encantada"<<endl;
+       system("pause"); 
+       }
     } 
 	return 0;
 }

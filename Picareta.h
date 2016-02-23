@@ -7,24 +7,26 @@ using namespace std;
 
 class Picareta
 {
-    private:
-    string material;
-    int durabilidade;
-    int forca;
-    Spell *feitico;
-    int nfeitico;
-    
-    static int preco;
-    
     public:
     Picareta();
     Picareta(const string &);
     Picareta(const Picareta &);
+    ~Picareta();
 
     int initDurabilidade();//define a durabilidade dependendo do tipo,retorna o valor maximo
     bool atacar( Bloco &);
-    bool encantar(Spell &)
+    bool encantar(const Spell &);
     bool consertar( Picareta &);
+    Spell* hasSpell(const string &);
     int mostrarDurabilidade();
+    
+    private:
+    string material;
+    int durabilidade;
+    int forca;
+    int nfeitico;
+    Spell **feitico;
+    
+    static int preco;
 };
 #endif // PICARETA_H
