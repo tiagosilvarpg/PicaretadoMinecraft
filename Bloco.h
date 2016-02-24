@@ -1,21 +1,34 @@
 #ifndef BLOCO_H
 #define BLOCO_H
 #include <string>
-using namespace std;
+using std::ostream;
+using std::string;
 class Bloco
 {
-    private:
-    string material;
-    int resistencia;
-    int cor;
     
-    public:
+    friend ostream & operator<<(ostream & ,const Bloco &);
+    
+   
+    
+public:
+    Bloco(string);
+    Bloco(const Bloco &);
+    Bloco();
+    
     bool damage(int);
-    void imprimir();
     static void limparTudo();
     void init(const string &);
     bool isAir();
-    Bloco(string);
-    Bloco();
+    
+    //novo
+    bool operator==(const Bloco &);
+    const Bloco & operator=(const Bloco &);
+    
+    //
+    
+     private:
+    string material;
+    int resistencia;
+    int cor;
 };
 #endif

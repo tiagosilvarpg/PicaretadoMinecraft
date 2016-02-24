@@ -71,7 +71,7 @@ void Mapa::refresh()
              cout<<'\2';
              //textcolor(15);
           }
-          else grid[i][j].imprimir();
+          else cout<<grid[i][j];
           
      }
      cout<<endl;

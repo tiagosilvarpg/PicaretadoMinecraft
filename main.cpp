@@ -3,7 +3,7 @@
 #include "Picareta.h"
 #include "Bloco.h"
 #include "Mapa.h"
-
+#include <stdlib.h>
 
 
 int main()

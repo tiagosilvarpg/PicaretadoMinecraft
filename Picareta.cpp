@@ -3,6 +3,7 @@
 #include "Spell.h"
 #include <iostream>
 #include <string>
+#include <stdlib.h>
 //#include <conio2.h>
 
 using namespace std;
@@ -54,6 +55,7 @@ bool Picareta::encantar(const Spell & tipoDeFeitico)
     //
     feitico=AUX; //poe o novo no objeto
     feitico[nfeitico-1]=new Spell(tipoDeFeitico);
+    return true;
 }
 int Picareta::initDurabilidade()
 {
@@ -107,7 +109,7 @@ bool Picareta::atacar( Bloco & target )
        if (spellTemp!=0)
        {
           if (spellTemp->usar())
-             durabilidade-=std::rand()%2;
+             durabilidade-=rand()%2;
           else
               durabilidade-=1;
        }

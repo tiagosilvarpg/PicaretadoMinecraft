@@ -14,17 +14,21 @@ Bloco::Bloco()
  material="pedra";
  init(material);
 }
-
-void Bloco::imprimir()
+Bloco::Bloco(const Bloco& original)
 {
-     
+ this->material=original.material;
+ init(material);
+}
+// SOBRECARGA
+ostream & operator<<(ostream & output,const Bloco & bloco)
+{
     
      
-     if (resistencia!=0)
+     if (bloco.resistencia!=0)
      {
         //textcolor(cor);
         //cout<<(char)178;//imprime o simbolo 178 da tabela ascii
-        cout<<material[0];
+        output<<bloco.material[0];
      }
      else
      {
@@ -32,8 +36,22 @@ void Bloco::imprimir()
          //cout<<(char)176;//imprime o simbolo 176 da tabela ascii
          cout<<" ";
      }
-     //textcolor(15);    
+     //textcolor(15);
+return output;    
 }
+const Bloco& Bloco::operator=(const Bloco & toCopy)
+{
+     this->material=toCopy.material;
+     init(material);    
+}
+bool Bloco::operator==(const Bloco & toCompare)
+{
+     if (material != toCompare.material) return false;
+     if (resistencia != toCompare.resistencia) return false;
+     return true;
+        
+}
+//SOBRECARGA
 bool Bloco::damage(int forca)
 {
       if (resistencia!=0)
