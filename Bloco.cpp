@@ -17,7 +17,8 @@ Bloco::Bloco()
 Bloco::Bloco(const Bloco& original)
 {
  this->material=original.material;
- init(material);
+ this->resistencia=original.resistencia;
+ this->cor=original.cor;
 }
 // SOBRECARGA
 ostream & operator<<(ostream & output,const Bloco & bloco)
@@ -34,7 +35,7 @@ ostream & operator<<(ostream & output,const Bloco & bloco)
      {
          //textcolor(0);
          //cout<<(char)176;//imprime o simbolo 176 da tabela ascii
-         cout<<" ";
+         output<<" ";
      }
      //textcolor(15);
 return output;    
@@ -42,7 +43,8 @@ return output;
 const Bloco& Bloco::operator=(const Bloco & toCopy)
 {
      this->material=toCopy.material;
-     init(material);    
+     this->resistencia=toCopy.resistencia;
+     this->cor=toCopy.cor;       
 }
 bool Bloco::operator==(const Bloco & toCompare)
 {
