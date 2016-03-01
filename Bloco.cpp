@@ -3,7 +3,7 @@
 #include <windows.h>
 #include <string>
 //#include <conio2.h>
-using namespace std;//BLOCO
+using std::string;//BLOCO
 Bloco::Bloco(string str)
 {
  material=str;
@@ -24,20 +24,12 @@ Bloco::Bloco(const Bloco& original)
 ostream & operator<<(ostream & output,const Bloco & bloco)
 {
     
-     
+    //textcolor(cor);
+    //cout<<(char)178;//imprime o simbolo 178 da tabela ascii
      if (bloco.resistencia!=0)
-     {
-        //textcolor(cor);
-        //cout<<(char)178;//imprime o simbolo 178 da tabela ascii
         output<<bloco.material[0];
-     }
      else
-     {
-         //textcolor(0);
-         //cout<<(char)176;//imprime o simbolo 176 da tabela ascii
-         output<<" ";
-     }
-     //textcolor(15);
+        output<<" ";
 return output;    
 }
 const Bloco& Bloco::operator=(const Bloco & toCopy)
