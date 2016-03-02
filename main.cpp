@@ -17,10 +17,10 @@ int main()
     cout<<"insira uma material para a picareta (pedra,diamante,ouro,ferro,madeira)"<<endl;
     cin>>str;
     Picareta ferramenta(str);
-    ferramenta.mostrarDurabilidade();
+    cout<<ferramenta;
     while (op!='x')
     {
-    system("cls");
+    //system("cls");
     mundo.refresh();
     cout <<"mover(a,s,d,w),sair(x)="<<endl;
     cout <<"durabilidade=";

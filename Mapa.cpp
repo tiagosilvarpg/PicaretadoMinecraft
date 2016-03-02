@@ -67,9 +67,7 @@ void Mapa::refresh()
      for (i=0;i<size;i++)
      {    if (i==playerX && j==playerY)
           {
-             //textcolor(15);
-             cout<<'\2';
-             //textcolor(15);
+             cout<<'T';
           }
           else cout<<grid[i][j];
           

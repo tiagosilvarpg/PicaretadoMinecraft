@@ -4,24 +4,30 @@
 #include <iostream>
 #include <string>
 #include <stdlib.h>
-//#include <conio2.h>
 
-using namespace std;
+using std::string;
+using std::cout;
+using std::endl;
 //estaticos
-int Picareta::preco=10;
+int Picareta::blocosMinerados=10;
 //Construtores
 Picareta::Picareta()
 {
     material="madeira";
+    tipo="picareta";
     feitico=0;
-    nfeitico=0;    
+    nFeitico=0;    
     initDurabilidade();
     cout<<"voce ganhou uma picareta de "<<material<<endl;
+}
+Picareta::~Picareta()
+{
+    delete[] feitico;
 }
 Picareta::Picareta(const string & str)
 {
     feitico=0;
-    nfeitico=0;
+    nFeitico=0;
     if (str=="madeira" || str=="pedra" || str=="ferro" || str=="ouro" || str=="diamante")
         material=str;
     else 
@@ -34,28 +40,13 @@ Picareta::Picareta(const string & str)
 Picareta::Picareta(const Picareta & original)
 {
     int i;
-    this->feitico= new Spell*[original.nfeitico];
-    for (i=0;i<nfeitico;i++)
+    this->feitico= new Spell*[original.nFeitico];
+    for (i=0;i<nFeitico;i++)
         this->feitico[i]=new Spell(*original.feitico[i]);
     this->material=original.material;
     this->durabilidade=original.durabilidade;
     this->forca=original.forca;
-    this->nfeitico=original.nfeitico;
-}
-bool Picareta::encantar(const Spell & tipoDeFeitico)
-{
-    //INCREMENTA VETOR
-        int i=0;
-        Spell ** AUX =new Spell*[++nfeitico]; //cria um novo vetor
-        
-        for (i=0;i<nfeitico-1;i++)
-            AUX[i]=feitico[i]; // copia o antigo no novo
-        
-        delete [] feitico; //apaga o antigo
-    //
-    feitico=AUX; //poe o novo no objeto
-    feitico[nfeitico-1]=new Spell(tipoDeFeitico);
-    return true;
+    this->nFeitico=original.nFeitico;
 }
 int Picareta::initDurabilidade()
 {
@@ -86,15 +77,7 @@ int Picareta::initDurabilidade()
          }
     return durabilidade;                                
 }
-int Picareta::mostrarDurabilidade()
-{
-    cout<<"restam "<<durabilidade<<" usos"<<endl;
-    int i;
-    for (i=0;i<nfeitico;i++)
-    cout<<feitico[i]->getNome()<<"("<<feitico[i]->getDuracao()<<")";
-    cout<<endl;
-    return durabilidade;
-}
+
 //INTERACAO COM OUTROS OBJETOS
 bool Picareta::atacar( Bloco & target )
 {
@@ -118,37 +101,16 @@ bool Picareta::atacar( Bloco & target )
     
     return true;
 }
-Spell* Picareta::hasSpell(const string & nome)
+
+//FRIENDS
+
+ostream & operator<<(ostream & output,Picareta & picareta)
 {
+    output<<"restam "<<picareta.getDurabilidade()<<" usos"<<endl;
     int i;
-    for (i=0;i<nfeitico;i++)
-    {
-        if ((feitico[i]->getNome())==nome)
-           if (feitico[i]->getDuracao()>0)
-            return (feitico[i]);
-    }
-    return 0;
-    }
-bool Picareta::consertar(Picareta & target)
-{
-    if (material==target.material)
-    {
-       int temp=durabilidade+target.durabilidade;//soma as durabilidades
-       target.durabilidade=0;//destroi a segunda       
-       if (temp>initDurabilidade())//checa o limite daquela picareta
-          durabilidade=initDurabilidade();       
-       return true;                               
-    }
-    else
-    {
-        cout<<"picaretas nao compativeis";
-        return false;
-    }    
+    for (i=0;i<picareta.nFeitico;i++)
+    output<<picareta.feitico[i]->getNome()<<"("<<picareta.feitico[i]->getDuracao()<<")";
+    output<<endl;
+    return output;
 }
-Picareta::~Picareta()
-{
-    delete[] feitico;
-}
-
-
 
