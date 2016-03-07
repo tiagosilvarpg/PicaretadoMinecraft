@@ -16,20 +16,20 @@ int main()
     Mapa  mundo(str,data);
     cout<<"insira uma material para a picareta (pedra,diamante,ouro,ferro,madeira)"<<endl;
     cin>>str;
-    Picareta ferramenta(str);
-    cout<<ferramenta;
+    Picareta tool(str);
+    cout<<tool;
     while (op!='x')
     {
-    //system("cls");
+    system("cls");
     mundo.refresh();
     cout <<"mover(a,s,d,w),sair(x)="<<endl;
     cout <<"durabilidade=";
-    ferramenta.mostrarDurabilidade();
+    cout<<tool;
     cin>>op;
     //op=getch();
     if ((op=='d')||(op=='a')||(op=='w')||(op=='s'))
     {
-       ferramenta.atacar(mundo.getBloco(op));
+       tool.atacar(mundo.getBloco(op));
        mundo.movePlayer(op);
     }
     if (op=='t')
@@ -41,7 +41,7 @@ int main()
     if (op=='e')
        {
        Spell spellTemp;
-       ferramenta.encantar(spellTemp);
+       tool.encantar(spellTemp);
        cout<<"picareta encantada"<<endl;
        system("pause"); 
        }

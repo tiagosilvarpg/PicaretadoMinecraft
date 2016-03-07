@@ -2,25 +2,23 @@
 #define PICARETA_H
 #include <string>
 #include "Bloco.h"
-#include "Spell.h"
 #include "Ferramenta.h"
 using std::string;
 
-class Picareta : protected Ferramenta
+class Picareta : public Ferramenta
 {
-    public:
+    friend ostream & operator<<(ostream & ,const Picareta &);
+public:
     Picareta();
     Picareta(const string &);
     Picareta(const Picareta &);
     ~Picareta();
-
-    int initDurabilidade();//define a durabilidade dependendo do tipo,retorna o valor maximo
-    friend ostream & operator<<(ostream & ,const Picareta &);
     bool atacar( Bloco &);
-    int mostrarDurabilidade();
-    
-    
-    
-    static int blocosMinerados;
+    //novo
+    bool operator==(const Picareta &);
+    const Picareta & operator=(const Picareta &);
+
+private:
+    static string tipo;
 };
 #endif // PICARETA_H

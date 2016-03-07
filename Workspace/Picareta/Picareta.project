@@ -102,5 +102,9 @@
     <File Name="Mapa.h"/>
     <File Name="Picareta.h"/>
     <File Name="Spell.h"/>
+    <File Name="Ferramenta.h"/>
+    <File Name="Ferramenta.cpp"/>
+    <File Name="Espada.cpp"/>
+    <File Name="Espada.h"/>
   </VirtualDirectory>
 </CodeLite_Project>

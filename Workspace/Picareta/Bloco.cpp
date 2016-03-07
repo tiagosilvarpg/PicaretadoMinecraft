@@ -18,42 +18,8 @@ Bloco::Bloco(const Bloco& original)
 {
  this->material=original.material;
  this->resistencia=original.resistencia;
- this->cor=original.cor;
 }
-// SOBRECARGA
-ostream & operator<<(ostream & output,const Bloco & bloco)
-{
-    
-     
-     if (bloco.resistencia!=0)
-     {
-        //textcolor(cor);
-        //cout<<(char)178;//imprime o simbolo 178 da tabela ascii
-        output<<bloco.material[0];
-     }
-     else
-     {
-         //textcolor(0);
-         //cout<<(char)176;//imprime o simbolo 176 da tabela ascii
-         output<<" ";
-     }
-     //textcolor(15);
-return output;    
-}
-const Bloco& Bloco::operator=(const Bloco & toCopy)
-{
-     this->material=toCopy.material;
-     this->resistencia=toCopy.resistencia;
-     this->cor=toCopy.cor;       
-}
-bool Bloco::operator==(const Bloco & toCompare)
-{
-     if (material != toCompare.material) return false;
-     if (resistencia != toCompare.resistencia) return false;
-     return true;
-        
-}
-//SOBRECARGA
+
 bool Bloco::damage(int forca)
 {
       if (resistencia!=0)
@@ -102,3 +68,37 @@ bool Bloco::isAir()
      return true;
      return false;
 }
+// SOBRECARGA
+ostream & operator<<(ostream & output,const Bloco & bloco)
+{
+    
+     
+     if (bloco.resistencia!=0)
+     {
+        //textcolor(cor);
+        //cout<<(char)178;//imprime o simbolo 178 da tabela ascii
+        output<<bloco.material[0];
+     }
+     else
+     {
+         //textcolor(0);
+         //cout<<(char)176;//imprime o simbolo 176 da tabela ascii
+         output<<" ";
+     }
+     //textcolor(15);
+return output;    
+}
+const Bloco& Bloco::operator=(const Bloco & toCopy)
+{
+     this->material=toCopy.material;
+     this->resistencia=toCopy.resistencia;
+    return *this;   
+}
+bool Bloco::operator==(const Bloco & toCompare)
+{
+     if (material != toCompare.material) return false;
+     if (resistencia != toCompare.resistencia) return false;
+     return true;
+        
+}
+//SOBRECARGA
