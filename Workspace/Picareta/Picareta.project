@@ -106,5 +106,7 @@
     <File Name="Ferramenta.cpp"/>
     <File Name="Espada.cpp"/>
     <File Name="Espada.h"/>
+    <File Name="Item.h"/>
+    <File Name="Item.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>

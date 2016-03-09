@@ -16,9 +16,12 @@ public:
     bool atacar( Bloco &);
     //novo
     bool operator==(const Picareta &);
+    bool operator!=(const Picareta & rValue);
     const Picareta & operator=(const Picareta &);
 
 private:
+
     static string tipo;
+    
 };
 #endif // PICARETA_H

@@ -7,9 +7,23 @@ using std::ostream;
 using std::endl;
 Ferramenta::Ferramenta()
 {
+    static_cast < Item > (*this) = Item ("Ferramenta");
     material="madeira";
     feitico=0;
     nFeitico=0;
+}
+Ferramenta::Ferramenta(const Ferramenta & rvalue)
+: Item(static_cast<Item>(rvalue))
+{
+    int i;
+    this->material=rvalue.material;
+    this->durabilidade=rvalue.durabilidade;
+    this->forca=rvalue.forca;
+    this->nFeitico=rvalue.nFeitico;
+    this->feitico= new Spell*[rvalue.nFeitico];
+    
+    for (i=0;i<nFeitico;i++)
+        this->feitico[i]=new Spell(*rvalue.feitico[i]);
 }
 Ferramenta::~Ferramenta()
 {
@@ -29,6 +43,20 @@ bool Ferramenta::encantar(const Spell & tipoDeFeitico)
     feitico=AUX; //poe o novo no objeto
     feitico[nFeitico-1]=new Spell(tipoDeFeitico);
     return true;
+}
+const Ferramenta & Ferramenta::operator=(const Ferramenta & rvalue)
+{
+    int i;
+    static_cast < Item > (*this) = Item (static_cast<Item> (rvalue));
+    this->material=rvalue.material;
+    this->durabilidade=rvalue.durabilidade;
+    this->forca=rvalue.forca;
+    this->nFeitico=rvalue.nFeitico;
+    this->feitico= new Spell*[rvalue.nFeitico];
+    
+    for (i=0;i<nFeitico;i++)
+        this->feitico[i]=new Spell(*rvalue.feitico[i]);
+    return *this;
 }
 int Ferramenta::initDurabilidade()
 {
@@ -62,8 +90,31 @@ int Ferramenta::initDurabilidade()
 ostream & operator<<(ostream & output,const Ferramenta & ferramenta)
 {
     int i;
-    output<<ferramenta.material<<"dur:"<<ferramenta.durabilidade;
-    for (i=0;i<ferramenta.nFeitico;i++)
-        output<<ferramenta.feitico[i]->getNome()<<"("<<ferramenta.feitico[i]->getDuracao()<<")";
+    
+    output << static_cast<Item>(ferramenta)
+           << ferramenta.material
+           <<"dur:"
+           <<ferramenta.durabilidade;
+    
+    for ( i=0; i<ferramenta.nFeitico; i++ )
+        output<<ferramenta.feitico[i]->getNome()
+              <<"("<<ferramenta.feitico[i]->getDuracao()<<")";
+              
     output<<endl;
+    
+    return output;
+}
+bool Ferramenta::operator==(const Ferramenta & rValue)
+{
+     
+    /*
+    this->material !=rvalue.material;
+    this->durabilidade=rvalue.durabilidade;
+    this->forca=rvalue.forca;
+    this->nFeitico=rvalue.nFeitico;
+    this->feitico= new Spell*[rvalue.nFeitico];
+    int i;
+    for (i=0;i<nFeitico;i++)
+        this->feitico[i]=new Spell(*rvalue.feitico[i]);*/
+    return true;
 }

@@ -29,18 +29,9 @@ Picareta::Picareta(const string & str)
     }
     initDurabilidade();//depois usara um metodo statico para definir o valor
 }
-Picareta::Picareta(const Picareta & original)
+Picareta::Picareta(const Picareta & rValue)
 {
-    int i;
-    
-    this->material=original.material;
-    this->durabilidade=original.durabilidade;
-    this->forca=original.forca;
-    this->nFeitico=original.nFeitico;
-    this->feitico= new Spell*[original.nFeitico];
-    
-    for (i=0;i<nFeitico;i++)
-        this->feitico[i]=new Spell(*original.feitico[i]);
+    static_cast < Ferramenta > (*this) = Ferramenta (static_cast<Ferramenta> (rValue));
 }
 
 //INTERACAO COM OUTROS OBJETOS
@@ -72,32 +63,27 @@ bool Picareta::atacar( Bloco & target )
 ostream & operator<<(ostream & output,const Picareta & picareta)
 {
     output<<"picareta de "<<static_cast<Ferramenta>(picareta);    
+    
     return output;
 }
-const Picareta& Picareta::operator=(const Picareta & toCopy)
+bool Picareta::operator==(const Picareta & rValue)
 {
-    this->material=toCopy.material;
-    this->forca=toCopy.forca;
-    this->nFeitico=toCopy.nFeitico;
-    int i;
-    delete (feitico);
-    feitico=new Spell*[nFeitico];
-    for(i=0;i<nFeitico;i++)
-        this->feitico[i]=toCopy.feitico[i];
-    return *this;
+    if (static_cast<Ferramenta>(*this)!=Ferramenta (static_cast<Ferramenta>(rValue)))
+        return false;
+    if(tipo!=rValue.tipo)
+        return false;
+    return true;
 }
-bool Picareta::operator==(const Picareta & toCompare)
+bool Picareta::operator!=(const Picareta & rValue)
 {
-    int i; 
-    if (material != toCompare.material) return false;
-     if (durabilidade != toCompare.durabilidade) return false;
-     if (nFeitico!=toCompare.nFeitico) return false;
-     for (i=0;i<nFeitico;i++)
-         if (feitico[i]!=toCompare.feitico[i]) return false;
-     return true;
+    return !(*this==rValue);
         
 }
-
+const Picareta& Picareta::operator=(const Picareta & rValue)
+{
+    static_cast < Ferramenta > (*this) = Ferramenta (static_cast<Ferramenta> (rValue));
+    return *this;
+} 
 Picareta::~Picareta()
 {
 }
