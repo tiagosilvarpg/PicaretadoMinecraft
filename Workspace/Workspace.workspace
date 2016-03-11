@@ -3,11 +3,9 @@
   <Project Name="Picareta" Path="Picareta/Picareta.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
-      <Environment/>
       <Project Name="Picareta" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
-      <Environment/>
       <Project Name="Picareta" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>

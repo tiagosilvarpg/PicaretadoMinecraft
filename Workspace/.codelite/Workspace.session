@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Session Name="C:\Users\Tiago\Desktop\GIT\PicaretadoMinecraft\Workspace\Workspace.workspace">
+  <int Value="10" Name="m_selectedTab"/>
+  <wxString Value="C:\Users\Tiago\Desktop\GIT\PicaretadoMinecraft\Workspace\Workspace.workspace" Name="m_workspaceName"/>
+  <TabInfoArray Name="TabInfoArray">
+    <TabInfo>
+      <wxString Value="C:\Users\Tiago\Desktop\GIT\PicaretadoMinecraft\Workspace\Picareta\Picareta.cpp" Name="FileName"/>
+      <int Value="20" Name="FirstVisibleLine"/>
+      <int Value="21" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\Tiago\Desktop\GIT\PicaretadoMinecraft\Workspace\Picareta\PicaretaDiamante.h" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="22" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\Tiago\Desktop\GIT\PicaretadoMinecraft\Workspace\Picareta\PicaretaDiamante.cpp" Name="FileName"/>
+      <int Value="48" Name="FirstVisibleLine"/>
+      <int Value="78" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\Tiago\Desktop\GIT\PicaretadoMinecraft\Workspace\Picareta\PicaretaPedra.h" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="12" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\Tiago\Desktop\GIT\PicaretadoMinecraft\Workspace\Picareta\PicaretaPedra.cpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="6" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\Tiago\Desktop\GIT\PicaretadoMinecraft\Workspace\Picareta\Ferramenta.cpp" Name="FileName"/>
+      <int Value="45" Name="FirstVisibleLine"/>
+      <int Value="20" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\Tiago\Desktop\GIT\PicaretadoMinecraft\Workspace\Picareta\Ferramenta.h" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="20" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\Tiago\Desktop\GIT\PicaretadoMinecraft\Workspace\Picareta\Mapa.h" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\Tiago\Desktop\GIT\PicaretadoMinecraft\Workspace\Picareta\Picareta.h" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="18" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\Tiago\Desktop\GIT\PicaretadoMinecraft\Workspace\Picareta\main.cpp" Name="FileName"/>
+      <int Value="9" Name="FirstVisibleLine"/>
+      <int Value="33" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\Tiago\Desktop\GIT\PicaretadoMinecraft\Workspace\Picareta\Bloco.cpp" Name="FileName"/>
+      <int Value="60" Name="FirstVisibleLine"/>
+      <int Value="82" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\Tiago\Desktop\GIT\PicaretadoMinecraft\Workspace\Picareta\Data.cpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\Tiago\Desktop\GIT\PicaretadoMinecraft\Workspace\Picareta\Data.h" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="7" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\Tiago\Desktop\GIT\PicaretadoMinecraft\Workspace\Picareta\Spell.cpp" Name="FileName"/>
+      <int Value="3" Name="FirstVisibleLine"/>
+      <int Value="30" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\Tiago\Desktop\GIT\PicaretadoMinecraft\Workspace\Picareta\Spell.h" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="6" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\Tiago\Desktop\GIT\PicaretadoMinecraft\Workspace\Picareta\Bloco.h" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\Tiago\Desktop\GIT\PicaretadoMinecraft\Workspace\Picareta\Mapa.cpp" Name="FileName"/>
+      <int Value="61" Name="FirstVisibleLine"/>
+      <int Value="62" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+  </TabInfoArray>
+  <SerializedObject Name="m_breakpoints">
+    <long Value="0" Name="Count"/>
+  </SerializedObject>
+</Session>

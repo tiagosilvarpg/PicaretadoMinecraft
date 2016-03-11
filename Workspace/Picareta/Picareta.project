@@ -1,7 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="Picareta" InternalType="Console">
+  <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00010001N0005Debug000000000000]]>
+    </Plugin>
+    <Plugin Name="CMakePlugin">
+      <![CDATA[[{
+  "name": "Debug",
+  "enabled": false,
+  "buildDirectory": "build",
+  "sourceDirectory": "$(ProjectPath)",
+  "generator": "",
+  "buildType": "",
+  "arguments": [],
+  "parentProject": ""
+ }, {
+  "name": "Release",
+  "enabled": false,
+  "buildDirectory": "build",
+  "sourceDirectory": "$(ProjectPath)",
+  "generator": "",
+  "buildType": "",
+  "arguments": [],
+  "parentProject": ""
+ }]]]>
+    </Plugin>
+  </Plugins>
   <Description/>
   <Dependencies/>
+  <VirtualDirectory Name="src">
+    <File Name="Bloco.cpp"/>
+    <File Name="Data.cpp"/>
+    <File Name="main.cpp"/>
+    <File Name="Mapa.cpp"/>
+    <File Name="Picareta.cpp"/>
+    <File Name="Spell.cpp"/>
+    <File Name="Bloco.h"/>
+    <File Name="Data.h"/>
+    <File Name="Mapa.h"/>
+    <File Name="Picareta.h"/>
+    <File Name="Spell.h"/>
+    <File Name="Ferramenta.h"/>
+    <File Name="Ferramenta.cpp"/>
+    <File Name="PicaretaDiamante.h"/>
+    <File Name="PicaretaDiamante.cpp"/>
+    <File Name="PicaretaPedra.h"/>
+    <File Name="PicaretaPedra.cpp"/>
+  </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>
       <Compiler Options="" C_Options="" Assembler="">
@@ -90,23 +135,4 @@
       </Completion>
     </Configuration>
   </Settings>
-  <VirtualDirectory Name="src">
-    <File Name="Bloco.cpp"/>
-    <File Name="Data.cpp"/>
-    <File Name="main.cpp"/>
-    <File Name="Mapa.cpp"/>
-    <File Name="Picareta.cpp"/>
-    <File Name="Spell.cpp"/>
-    <File Name="Bloco.h"/>
-    <File Name="Data.h"/>
-    <File Name="Mapa.h"/>
-    <File Name="Picareta.h"/>
-    <File Name="Spell.h"/>
-    <File Name="Ferramenta.h"/>
-    <File Name="Ferramenta.cpp"/>
-    <File Name="Espada.cpp"/>
-    <File Name="Espada.h"/>
-    <File Name="Item.h"/>
-    <File Name="Item.cpp"/>
-  </VirtualDirectory>
 </CodeLite_Project>

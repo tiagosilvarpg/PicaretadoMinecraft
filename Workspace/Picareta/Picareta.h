@@ -10,18 +10,17 @@ class Picareta : public Ferramenta
     friend ostream & operator<<(ostream & ,const Picareta &);
 public:
     Picareta();
-    Picareta(const string &);
     Picareta(const Picareta &);
     ~Picareta();
-    bool atacar( Bloco &);
     //novo
+    static void increaseTotalMinerado();
+    //sobrecarga
     bool operator==(const Picareta &);
     bool operator!=(const Picareta & rValue);
     const Picareta & operator=(const Picareta &);
 
 private:
-
-    static string tipo;
+    static int totalMinerado;
     
 };
 #endif // PICARETA_H

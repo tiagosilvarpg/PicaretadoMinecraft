@@ -3,10 +3,9 @@
 #include <string>
 #include "Bloco.h"
 #include "Spell.h"
-#include "Item.h"
 using std::string;
 
-class Ferramenta : public Item
+class Ferramenta
 {
     friend ostream & operator<<(ostream & output,const Ferramenta & ferramenta);
     
@@ -16,20 +15,16 @@ public:
     Ferramenta(const Ferramenta&);
     ~Ferramenta();
 
-    int initDurabilidade();
     bool encantar(const Spell &);
     bool consertar( Ferramenta &);
     Spell* hasSpell(const string &);
+    //sobrecarga
     const Ferramenta & operator=(const Ferramenta & rvalue);
-    bool operator==(const Ferramenta & rvalue);
-    bool operator!=(const Ferramenta & rvalue);
+    bool operator==(const Ferramenta & rValue);
     
 protected:
-    
-    string material;
     int durabilidade;
-    int forca;
-    int nFeitico;
+    int feiticoCount;
     Spell **feitico;
     
 };
