@@ -13,7 +13,7 @@ Ferramenta::Ferramenta()
 Ferramenta::Ferramenta(const Ferramenta & rvalue)
 {
     this->durabilidade=rvalue.durabilidade;
-    this->forca=rvalue.forca;
+    cout<<rvalue.durabilidade;
     this->feiticoCount=rvalue.feiticoCount;
     this->feitico= new Spell*[rvalue.feiticoCount];
     
@@ -43,7 +43,6 @@ const Ferramenta & Ferramenta::operator=(const Ferramenta & rvalue)
 {
     int i;
     this->durabilidade=rvalue.durabilidade;
-    this->forca=rvalue.forca;
     this->feiticoCount=rvalue.feiticoCount;
     this->feitico= new Spell*[rvalue.feiticoCount];
     
@@ -60,7 +59,6 @@ bool Ferramenta::operator==(const Ferramenta & rValue)
 {
     int i;
     if (this->durabilidade==rValue.durabilidade)
-       if (this->forca==rValue.forca)
           if (this->feiticoCount==rValue.feiticoCount)
           {
              for (i=0;i<feiticoCount;i++)

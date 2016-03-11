@@ -10,6 +10,13 @@ PicaretaPedra::PicaretaPedra()
 {
     durabilidade=durabilidadeMaxima;
 }
+PicaretaPedra::PicaretaPedra(const PicaretaPedra& rValue)
+:Picareta(static_cast<Picareta>(rValue))
+{
+    durabilidade=durabilidadeMaxima;
+}
+
+
 
 PicaretaPedra::~PicaretaPedra()
 {
@@ -24,6 +31,7 @@ bool PicaretaPedra::usar( Bloco & target )
     }
     if (target.damage(forca))
     {
+       increaseTotalMinerado();
        spellTemp=Ferramenta::hasSpell("resistente");
        
        if (spellTemp!=0)
@@ -41,16 +49,26 @@ bool PicaretaPedra::usar( Bloco & target )
 //SOBRECARGA
 ostream & operator<<(ostream & output,const PicaretaPedra & rValue)
 {
-    output <<"Picareta de diamante,"
+    int i;
+    output <<"Picareta de pedra,"
            <<rValue.durabilidade
            <<"/"
            <<rValue.durabilidadeMaxima
-           <<static_cast<Picareta>(rValue);
+           <<std::endl;
+    for ( i=0; i<rValue.feiticoCount; i++ )
+    {
+        output <<"   spell["
+               <<i
+               <<"]"
+               <<*(rValue.feitico[i])
+               <<std::endl;    
+    }
+    output<<std::endl;
     return output;
 }
 const PicaretaPedra& PicaretaPedra::operator=(const PicaretaPedra & rValue)
 {
-    static_cast < Picareta > (*this) = PicaretaPedra (static_cast<PicaretaPedra> (rValue));
+    static_cast < Picareta & > (*this) = static_cast<Picareta> (rValue);
     durabilidadeMaxima=rValue.durabilidadeMaxima;
     return *this;
 }

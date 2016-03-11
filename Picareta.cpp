@@ -41,7 +41,7 @@ bool Picareta::operator!=(const Picareta & rValue)
 }
 const Picareta& Picareta::operator=(const Picareta & rValue)
 {
-    static_cast < Ferramenta > (*this) = Ferramenta (static_cast<Ferramenta> (rValue));
+    static_cast < Ferramenta & > (*this) = static_cast<Ferramenta> (rValue);
     return *this;
 } 
 Picareta::~Picareta()

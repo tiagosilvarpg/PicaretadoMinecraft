@@ -7,6 +7,7 @@ class PicaretaPedra : public Picareta
     friend ostream & operator<<(ostream & output,const PicaretaPedra & rValue);
 public:
     PicaretaPedra();
+    PicaretaPedra(const PicaretaPedra &);
     ~PicaretaPedra();
     const PicaretaPedra& operator=(const PicaretaPedra & rValue);
     bool operator==(const PicaretaPedra & rValue);

@@ -75,12 +75,14 @@ ostream & operator<<(ostream & output,const Bloco & bloco)
      
      if (bloco.resistencia!=0)
      {
-        
+        //textcolor(cor);
+        //cout<<(char)178;//imprime o simbolo 178 da tabela ascii
         output<<bloco.material[0];
      }
      else
      {
-i
+         //textcolor(0);
+         //cout<<(char)176;//imprime o simbolo 176 da tabela ascii
          output<<" ";
      }
      //textcolor(15);

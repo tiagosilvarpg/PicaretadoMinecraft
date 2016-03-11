@@ -15,7 +15,8 @@ int main()
     cout<<"insira uma cadeia de blocos (ouro=0,pedra=p,ferro=f,diamante=d,inicio=i)"<<endl;
     cin>>str;
     Mapa  mundo(str,data);
-    PicaretaDiamante tool;    
+    PicaretaDiamante tool3,tool2(tool3);
+    PicaretaDiamante tool=tool2;//,tool=tool2;
     while (op!='x')
     {
     system("cls");

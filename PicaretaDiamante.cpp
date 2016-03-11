@@ -10,10 +10,14 @@ PicaretaDiamante::PicaretaDiamante()
 {
     durabilidade=durabilidadeMaxima;
 }
-PicaretaDiamante::PicaretaDiamante(const PicaretaDiamante & rValue)
+PicaretaDiamante::PicaretaDiamante(const PicaretaDiamante& rValue)
+:Picareta(static_cast<Picareta>(rValue))
 {
-    static_cast < Picareta > (*this) = Picareta (static_cast<Picareta> (rValue));
+    durabilidade=durabilidadeMaxima;
 }
+
+
+
 PicaretaDiamante::~PicaretaDiamante()
 {
     
@@ -46,7 +50,7 @@ bool PicaretaDiamante::usar( Bloco & target )
 ostream & operator<<(ostream & output,const PicaretaDiamante & rValue)
 {
     int i;
-    output <<"Picareta de pedra,"
+    output <<"Picareta de Diamante,"
            <<rValue.durabilidade
            <<"/"
            <<rValue.durabilidadeMaxima
@@ -64,7 +68,7 @@ ostream & operator<<(ostream & output,const PicaretaDiamante & rValue)
 }
 const PicaretaDiamante& PicaretaDiamante::operator=(const PicaretaDiamante & rValue)
 {
-    static_cast < Picareta > (*this) = PicaretaDiamante (static_cast<PicaretaDiamante> (rValue));
+    static_cast < Picareta & > (*this) = static_cast<Picareta> (rValue);
     durabilidadeMaxima=rValue.durabilidadeMaxima;
     return *this;
 }
