@@ -1,17 +1,16 @@
 #include <string>
 #include "Spell.h"
+using std::cout;
+using std::ostream;
 Spell::Spell()
 {
     duracao=10;
-    nivel=1;
     nome="resistente";
     descricao="tem uma chance de nao gastar quando usada";
 }
 Spell::Spell(const Spell & original)
 {
     this->duracao=original.duracao;
-    this->descricao=original.descricao;
-    this->nivel=original.nivel;
     this->nome=original.nome;
 }
 std::string Spell::getNome()
@@ -27,6 +26,14 @@ bool Spell::usar()
         return false;
      duracao-=1;
      return true;
+}
+ostream & operator<<(ostream & output,const Spell & feitico)
+{
+    output <<feitico.nome
+           <<"("
+           <<feitico.duracao
+           <<")";
+    return output;
 }
 Spell::~Spell()
 {

@@ -1,35 +1,32 @@
 #include <iostream>
 #include <string>
-#include "Picareta.h"
 #include "Bloco.h"
 #include "Mapa.h"
 #include <stdlib.h>
+#include "PicaretaDiamante.h"
 
 
 int main()
 {
-	string str;
-    Data data(17,02,2016);
+    Data data(11,03,2016);
+    string str;
     char op;
+    
     cout<<"insira uma cadeia de blocos (ouro=0,pedra=p,ferro=f,diamante=d,inicio=i)"<<endl;
     cin>>str;
     Mapa  mundo(str,data);
-    cout<<"insira uma material para a picareta (pedra,diamante,ouro,ferro,madeira)"<<endl;
-    cin>>str;
-    Picareta ferramenta(str);
-    ferramenta.mostrarDurabilidade();
+    PicaretaDiamante tool;    
     while (op!='x')
     {
     system("cls");
     mundo.refresh();
-    cout <<"mover(a,s,d,w),sair(x)="<<endl;
-    cout <<"durabilidade=";
-    ferramenta.mostrarDurabilidade();
+    cout<<tool;
+    cout <<"mover(a,s,d,w),encantar(e),sair(x)="; 
     cin>>op;
     //op=getch();
     if ((op=='d')||(op=='a')||(op=='w')||(op=='s'))
     {
-       ferramenta.atacar(mundo.getBloco(op));
+       tool.usar(mundo.getBloco(op));
        mundo.movePlayer(op);
     }
     if (op=='t')
@@ -41,7 +38,7 @@ int main()
     if (op=='e')
        {
        Spell spellTemp;
-       ferramenta.encantar(spellTemp);
+       tool.encantar(spellTemp);
        cout<<"picareta encantada"<<endl;
        system("pause"); 
        }
