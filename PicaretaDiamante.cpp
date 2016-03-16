@@ -1,5 +1,6 @@
 #include "PicaretaDiamante.h"
 #include <iostream>
+#include <stdlib.h>
 using std::ostream;
 //Static
 int PicaretaDiamante::durabilidadeMaxima=1561;

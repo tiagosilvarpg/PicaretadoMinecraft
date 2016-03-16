@@ -18,20 +18,25 @@ Picareta::Picareta()
 }
 Picareta::Picareta(const Picareta & rValue)
 {
-    static_cast < Ferramenta > (*this) = Ferramenta (static_cast<Ferramenta> (rValue));
+    durabilidade=rValue.durabilidade;
+    feiticoCount=rValue.feiticoCount;
+    //
 }
-
+bool Picareta::encantar(const Spell & tipoDeFeitico)
+{
+    feitico.push_back(new Spell(tipoDeFeitico));
+    return true;
+}
 //FRIENDS
 ostream & operator<<(ostream & output,const Picareta & picareta)
 {
-    output<<static_cast<Ferramenta>(picareta);    
-    
     return output;
 }
 bool Picareta::operator==(const Picareta & rValue)
 {
-    if (!(static_cast<Ferramenta>(*this)==Ferramenta (static_cast<Ferramenta>(rValue))))
-        return false;
+    if (durabilidade!=rValue.durabilidade)
+        if (feitico!=feitico)
+            return false;
     return true;
 }
 bool Picareta::operator!=(const Picareta & rValue)
@@ -41,9 +46,14 @@ bool Picareta::operator!=(const Picareta & rValue)
 }
 const Picareta& Picareta::operator=(const Picareta & rValue)
 {
-    static_cast < Ferramenta & > (*this) = static_cast<Ferramenta> (rValue);
+    (*this).durabilidade=rValue.durabilidade;
+    (*this).feitico=rValue.feitico;
     return *this;
-} 
+}
+bool Picareta::consertar(const Ferramenta & rValue) 
+{
+    if (*this).durabilidade+=rValue.durabilidade;
+}
 Picareta::~Picareta()
 {
 }

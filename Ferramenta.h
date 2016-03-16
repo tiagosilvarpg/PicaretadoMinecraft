@@ -3,29 +3,27 @@
 #include <string>
 #include "Bloco.h"
 #include "Spell.h"
+#include <vector>
 using std::string;
+using std::vector;
 
 class Ferramenta
 {
-    friend ostream & operator<<(ostream & output,const Ferramenta & ferramenta);
-    
 public:
     Ferramenta();
     Ferramenta(const string &,const string &);
     Ferramenta(const Ferramenta&);
     ~Ferramenta();
 
-    bool encantar(const Spell &);
-    bool consertar( Ferramenta &);
+    virtual bool encantar(const Spell &)=0;
+    virtual bool consertar( Ferramenta &)=0;
     Spell* hasSpell(const string &);
     //sobrecarga
-    const Ferramenta & operator=(const Ferramenta & rvalue);
-    bool operator==(const Ferramenta & rValue);
-    
+
 protected:
     int durabilidade;
     int feiticoCount;
-    Spell **feitico;
+    vector<Spell *>feitico;
     
 };
 #endif // PICARETA_H

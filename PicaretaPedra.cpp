@@ -37,7 +37,7 @@ bool PicaretaPedra::usar( Bloco & target )
        if (spellTemp!=0)
        {
           if (spellTemp->usar())
-             durabilidade-=rand()%2;
+             durabilidade-=1;//rand()%2;
           else
               durabilidade-=1;
        }

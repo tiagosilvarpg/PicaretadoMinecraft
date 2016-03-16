@@ -14,6 +14,8 @@ public:
     ~Picareta();
     //novo
     static void increaseTotalMinerado();
+    bool consertar( Ferramenta &);
+    bool encantar(const Spell &);
     //sobrecarga
     bool operator==(const Picareta &);
     bool operator!=(const Picareta & rValue);
