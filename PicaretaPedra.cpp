@@ -1,9 +1,10 @@
 #include "PicaretaPedra.h"
 #include <iostream>
 using std::ostream;
+using std::endl;
 //Static
 int PicaretaPedra::durabilidadeMaxima=131;
-int PicaretaPedra::forca=6;
+int PicaretaPedra::forcaBase=6;
 //CONSTRUTOR
 PicaretaPedra::PicaretaPedra()
 :Picareta()
@@ -11,7 +12,6 @@ PicaretaPedra::PicaretaPedra()
     durabilidade=durabilidadeMaxima;
 }
 PicaretaPedra::PicaretaPedra(const PicaretaPedra& rValue)
-:Picareta(static_cast<Picareta>(rValue))
 {
     durabilidade=durabilidadeMaxima;
 }
@@ -22,30 +22,7 @@ PicaretaPedra::~PicaretaPedra()
 {
     
 }
-bool PicaretaPedra::usar( Bloco & target )
-{
-    Spell *spellTemp=0;
-    if (durabilidade==0) 
-    {  std::cout<<"sua picareta esta quebrada";
-       return true;
-    }
-    if (target.damage(forca))
-    {
-       increaseTotalMinerado();
-       spellTemp=Ferramenta::hasSpell("resistente");
-       
-       if (spellTemp!=0)
-       {
-          if (spellTemp->usar())
-             durabilidade-=1;//rand()%2;
-          else
-              durabilidade-=1;
-       }
-       else durabilidade-=1;
-    }
-    
-    return true;
-}
+
 //SOBRECARGA
 ostream & operator<<(ostream & output,const PicaretaPedra & rValue)
 {
@@ -55,7 +32,8 @@ ostream & operator<<(ostream & output,const PicaretaPedra & rValue)
            <<"/"
            <<rValue.durabilidadeMaxima
            <<std::endl;
-    for ( i=0; i<rValue.feiticoCount; i++ )
+    
+    for ( i=0; i<rValue.feitico.size(); i++ )
     {
         output <<"   spell["
                <<i
@@ -63,20 +41,20 @@ ostream & operator<<(ostream & output,const PicaretaPedra & rValue)
                <<*(rValue.feitico[i])
                <<std::endl;    
     }
-    output<<std::endl;
+    output<<endl;
     return output;
 }
 const PicaretaPedra& PicaretaPedra::operator=(const PicaretaPedra & rValue)
 {
-    static_cast < Picareta & > (*this) = static_cast<Picareta> (rValue);
     durabilidadeMaxima=rValue.durabilidadeMaxima;
     return *this;
 }
 bool PicaretaPedra::operator==(const PicaretaPedra & rValue)
 {
-    if (static_cast<Picareta>(*this)==Picareta (static_cast<Picareta>(rValue)))
-        return true;
-    else 
-        return false;
+    if (durabilidadeMaxima==rValue.durabilidadeMaxima)   
+       if (durabilidade==rValue.durabilidade)
+          if (feitico==rValue.feitico)          
+             return true;
+    return false;
 }
 

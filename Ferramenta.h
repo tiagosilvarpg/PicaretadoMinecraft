@@ -11,19 +11,16 @@ class Ferramenta
 {
 public:
     Ferramenta();
-    Ferramenta(const string &,const string &);
-    Ferramenta(const Ferramenta&);
+    Ferramenta(const Ferramenta &);
     ~Ferramenta();
 
-    virtual bool encantar(const Spell &)=0;
-    virtual bool consertar( Ferramenta &)=0;
+    bool encantar(const Spell &);    
     Spell* hasSpell(const string &);
-    //sobrecarga
-
-protected:
+    bool remover(Spell &); 
+    virtual bool consertar( const Ferramenta &)=0;
+public:
     int durabilidade;
-    int feiticoCount;
     vector<Spell *>feitico;
     
 };
-#endif // PICARETA_H
+#endif

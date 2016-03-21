@@ -9,14 +9,14 @@ public:
     PicaretaDiamante();
     PicaretaDiamante(const PicaretaDiamante &);
     ~PicaretaDiamante();
-    bool usar( Bloco & target );
+    
     //sobrecarga
     const PicaretaDiamante& operator=(const PicaretaDiamante & rValue);
     bool operator==(const PicaretaDiamante & rValue);
     
 private:
     static int durabilidadeMaxima;
-    static int forca;
+    static int forcaBase;
 
 };
 

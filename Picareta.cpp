@@ -13,19 +13,18 @@ using std::cout;
 //estaticos
 int Picareta::totalMinerado=0;
 //Construtores
+
 Picareta::Picareta()
 {
 }
 Picareta::Picareta(const Picareta & rValue)
 {
     durabilidade=rValue.durabilidade;
-    feiticoCount=rValue.feiticoCount;
-    //
 }
-bool Picareta::encantar(const Spell & tipoDeFeitico)
+//OUTROS
+bool Picareta::consertar( const Ferramenta & rValue) 
 {
-    feitico.push_back(new Spell(tipoDeFeitico));
-    return true;
+    durabilidade+=rValue.durabilidade;
 }
 //FRIENDS
 ostream & operator<<(ostream & output,const Picareta & picareta)
@@ -44,19 +43,46 @@ bool Picareta::operator!=(const Picareta & rValue)
     return !(*this==rValue);
         
 }
+bool Picareta::usar( Bloco & target )
+{
+    Spell *spellTemp=0;
+    if (durabilidade==0) 
+    {  std::cout<<"sua picareta esta quebrada";
+       return true;
+    }
+    if (target.damage(forca))
+    {
+       increaseTotalMinerado();
+       spellTemp=Ferramenta::hasSpell("resistente");
+       
+       if (spellTemp!=0)
+       {
+          if (spellTemp->usar())
+             durabilidade-=rand()%2;
+          else
+          {   remover(*spellTemp);
+              cout<<"fez isso";
+              system("pause");
+              durabilidade-=1;
+          }
+       }
+       else durabilidade-=1;
+    }
+    
+    return true;
+}
 const Picareta& Picareta::operator=(const Picareta & rValue)
 {
     (*this).durabilidade=rValue.durabilidade;
     (*this).feitico=rValue.feitico;
     return *this;
 }
-bool Picareta::consertar(const Ferramenta & rValue) 
-{
-    if (*this).durabilidade+=rValue.durabilidade;
-}
+//destrutor
 Picareta::~Picareta()
 {
 }
+
+//STATIC
 void Picareta::increaseTotalMinerado()
 {
        totalMinerado++;

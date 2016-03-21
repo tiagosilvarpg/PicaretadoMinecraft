@@ -11,10 +11,9 @@ public:
     ~PicaretaPedra();
     const PicaretaPedra& operator=(const PicaretaPedra & rValue);
     bool operator==(const PicaretaPedra & rValue);
-    bool usar( Bloco & target );
 private:
     static int durabilidadeMaxima;
-    static int forca;
+    static int forcaBase;
     
 
 };
