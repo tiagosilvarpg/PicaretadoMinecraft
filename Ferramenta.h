@@ -18,7 +18,7 @@ public:
     Spell* hasSpell(const string &);
     bool remover(Spell &); 
     virtual bool consertar( const Ferramenta &)=0;
-public:
+protected:
     int durabilidade;
     vector<Spell *>feitico;
     
