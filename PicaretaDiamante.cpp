@@ -26,7 +26,7 @@ PicaretaDiamante::~PicaretaDiamante()
 //SOBRECARGA
 ostream & operator<<(ostream & output,const PicaretaDiamante & rValue)
 {
-    int i;
+    unsigned int i;
     output <<"Picareta de Diamante,"
            <<rValue.durabilidade
            <<"/"

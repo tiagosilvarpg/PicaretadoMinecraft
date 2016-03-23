@@ -12,7 +12,7 @@ class Ferramenta
 public:
     Ferramenta();
     Ferramenta(const Ferramenta &);
-    ~Ferramenta();
+    virtual ~Ferramenta();
 
     Spell* hasSpell(const string &);
     bool encantar(const Spell &);
