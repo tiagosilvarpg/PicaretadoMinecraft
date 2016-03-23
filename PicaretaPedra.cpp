@@ -26,14 +26,13 @@ PicaretaPedra::~PicaretaPedra()
 //SOBRECARGA
 ostream & operator<<(ostream & output,const PicaretaPedra & rValue)
 {
-    int i;
     output <<"Picareta de pedra,"
            <<rValue.durabilidade
            <<"/"
            <<rValue.durabilidadeMaxima
            <<std::endl;
     
-    for ( i=0; i<rValue.feitico.size(); i++ )
+    for ( unsigned int i=0; i<rValue.feitico.size(); i++ )
     {
         output <<"   spell["
                <<i

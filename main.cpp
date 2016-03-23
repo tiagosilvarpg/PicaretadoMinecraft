@@ -13,11 +13,12 @@ int main()
     string str;
     char op;
     int selecionada=0;
+    vector<Ferramenta*>ferramentas;
     
     cout<<"insira uma cadeia de blocos (ouro=0,pedra=p,ferro=f,diamante=d,inicio=i)"<<endl;
     cin>>str;
     Mapa  mundo(str,data);
-    vector<Ferramenta*>ferramentas;
+    
     ferramentas.push_back(new PicaretaDiamante);
     ferramentas.push_back(new PicaretaDiamante(*(dynamic_cast<PicaretaDiamante *>(ferramentas[0]) ) ));
     ferramentas.push_back(new PicaretaPedra);
@@ -33,7 +34,8 @@ int main()
     if ((op=='d')||(op=='a')||(op=='w')||(op=='s'))
     {
        
-       dynamic_cast<Picareta*>(ferramentas[selecionada])->usar(mundo.getBloco(op));
+       ferramentas[selecionada]->usar(mundo.getBloco(op));
+        //dynamic_cast<Picareta*>(ferramentas[selecionada])->usar(mundo.getBloco(op));
        mundo.movePlayer(op);
     }
     if ((op=='1')||(op=='2')||(op=='3'))
@@ -49,7 +51,7 @@ int main()
     if (op=='e')
        {
        Spell spellTemp;
-        dynamic_cast<Picareta*>(ferramentas[selecionada])->encantar(spellTemp);
+       ferramentas[selecionada]->encantar(spellTemp);
        cout<<"picareta encantada"<<endl;
        system("pause"); 
        }

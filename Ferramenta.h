@@ -16,6 +16,7 @@ public:
 
     Spell* hasSpell(const string &);
     bool encantar(const Spell &);
+    virtual bool usar( Bloco & target )=0;
     bool remover(Spell &); 
     virtual bool consertar( const Ferramenta &)=0;
 public:
