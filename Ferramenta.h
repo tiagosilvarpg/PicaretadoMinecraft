@@ -14,11 +14,11 @@ public:
     Ferramenta(const Ferramenta &);
     ~Ferramenta();
 
-    bool encantar(const Spell &);    
     Spell* hasSpell(const string &);
+    bool encantar(const Spell &);
     bool remover(Spell &); 
     virtual bool consertar( const Ferramenta &)=0;
-protected:
+public:
     int durabilidade;
     vector<Spell *>feitico;
     

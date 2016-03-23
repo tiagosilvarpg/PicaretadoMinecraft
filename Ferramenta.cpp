@@ -15,6 +15,10 @@ Ferramenta::Ferramenta(const Ferramenta & rvalue)
 }
 Ferramenta::~Ferramenta()
 {
+    unsigned int i;
+    for (i=0;i<feitico.size();i++)
+    {   delete feitico[i];
+    }
 }
 //OUTROS
 bool Ferramenta::encantar(const Spell & tipoDeFeitico)
@@ -23,15 +27,17 @@ bool Ferramenta::encantar(const Spell & tipoDeFeitico)
     return true;
 }
 bool Ferramenta::remover(Spell & spellTemp)
-{ int i=0;
-  for (i=0;i<feitico.size();i++)
-  {   if ((feitico[i])==&(spellTemp))
-         feitico.erase(feitico.begin()+i);
-      }
+{ 
+  for (unsigned int i=0;i<feitico.size();i++)
+        if ((feitico[i])==&(spellTemp))
+        {   delete feitico[i];
+            feitico.erase(feitico.begin()+i);
+        }
+    return true;
 }
 Spell * Ferramenta::hasSpell(const string &nome)
 {
-   int i;
+   unsigned int i;
    for(i=0;i<feitico.size();i++)
    if (feitico[i]->getNome()==nome)
       return (feitico[i]);

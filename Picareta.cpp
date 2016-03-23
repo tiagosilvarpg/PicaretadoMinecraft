@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <stdlib.h>
+#include <typeinfo>
 #include "Ferramenta.h"
 
 using std::string;
@@ -24,7 +25,13 @@ Picareta::Picareta(const Picareta & rValue)
 //OUTROS
 bool Picareta::consertar( const Ferramenta & rValue) 
 {
-    durabilidade+=rValue.durabilidade;
+    if (typeid(*this).name()==typeid(rValue).name())
+    {
+        durabilidade+=rValue.durabilidade;
+        return true;
+    }
+    return false;
+    
 }
 //FRIENDS
 ostream & operator<<(ostream & output,const Picareta & picareta)
