@@ -27,20 +27,19 @@ int main()
     {
     system("cls");
     mundo.refresh();
-    cout<<ferramentas[selecionada];
-    cout <<"mover(a,s,d,w),encantar(e),sair(x)="; 
+    ferramentas[selecionada]->exibir();
+    cout <<"mover(a,s,d,w),encantar(e),sair(x),selecionar picareta(1,2,3)"<<std::endl<<":"; 
     cin>>op;
     //op=getch();
     if ((op=='d')||(op=='a')||(op=='w')||(op=='s'))
     {
        
        ferramentas[selecionada]->usar(mundo.getBloco(op));
-        //dynamic_cast<Picareta*>(ferramentas[selecionada])->usar(mundo.getBloco(op));
        mundo.movePlayer(op);
     }
     if ((op=='1')||(op=='2')||(op=='3'))
     {
-       selecionada=op - '0';
+       selecionada=op-1 - '0';
     }
     if (op=='t')
         {   

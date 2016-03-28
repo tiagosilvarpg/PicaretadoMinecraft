@@ -12,13 +12,16 @@ class Ferramenta
 public:
     Ferramenta();
     Ferramenta(const Ferramenta &);
+    
     virtual ~Ferramenta();
-
+    
     Spell* hasSpell(const string &);
-    bool encantar(const Spell &);
-    virtual bool usar( Bloco & target )=0;
-    bool remover(Spell &); 
+    bool encantar(const Spell &);    
+    bool remover(Spell &);
+    
+    virtual bool usar( Bloco & target )=0; 
     virtual bool consertar( const Ferramenta &)=0;
+    virtual void exibir()=0;
 public:
     int durabilidade;
     vector<Spell *>feitico;

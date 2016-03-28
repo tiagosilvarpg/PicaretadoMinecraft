@@ -10,6 +10,7 @@ PicaretaPedra::PicaretaPedra()
 :Picareta()
 {
     durabilidade=durabilidadeMaxima;
+    forca=forcaBase;
 }
 PicaretaPedra::PicaretaPedra(const PicaretaPedra& rValue)
 {
@@ -36,9 +37,8 @@ ostream & operator<<(ostream & output,const PicaretaPedra & rValue)
     {
         output <<"   spell["
                <<i
-               <<"]"
-               <<*(rValue.feitico[i])
-               <<std::endl;    
+               <<"]="
+               <<*rValue.feitico[i];
     }
     output<<endl;
     return output;
@@ -56,4 +56,6 @@ bool PicaretaPedra::operator==(const PicaretaPedra & rValue)
              return true;
     return false;
 }
-
+void PicaretaPedra::exibir()
+{    std::cout<<*this; 
+}

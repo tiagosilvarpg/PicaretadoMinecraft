@@ -67,8 +67,8 @@ bool Picareta::usar( Bloco & target )
           if (spellTemp->usar())
              durabilidade-=rand()%2;
           else
-          {   remover(*spellTemp);
-              cout<<"fez isso";
+          {   cout<<*spellTemp<<" expirou"<<std::endl;
+              remover(*spellTemp);
               system("pause");
               durabilidade-=1;
           }
@@ -88,7 +88,6 @@ const Picareta& Picareta::operator=(const Picareta & rValue)
 Picareta::~Picareta()
 {
 }
-
 //STATIC
 void Picareta::increaseTotalMinerado()
 {

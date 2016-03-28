@@ -11,9 +11,13 @@ class Picareta : public Ferramenta
 public:
     Picareta();
     Picareta(const Picareta &);
+    
     ~Picareta();
-    //novo
+
     static void increaseTotalMinerado();
+    
+    virtual void exibir()=0;
+    
     bool usar( Bloco & target );
     bool consertar( const Ferramenta &);
     //sobrecarga

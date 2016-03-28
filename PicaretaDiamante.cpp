@@ -1,6 +1,5 @@
 #include "PicaretaDiamante.h"
 #include <iostream>
-#include <stdlib.h>
 using std::ostream;
 using std::endl;
 //Static
@@ -15,7 +14,8 @@ PicaretaDiamante::PicaretaDiamante()
 }
 PicaretaDiamante::PicaretaDiamante(const PicaretaDiamante& rValue)
 {
-    durabilidade=durabilidadeMaxima;
+    durabilidade=rValue.durabilidade;
+    forca=rValue.forca;
 }
 PicaretaDiamante::~PicaretaDiamante()
 {
@@ -33,14 +33,12 @@ ostream & operator<<(ostream & output,const PicaretaDiamante & rValue)
            <<rValue.durabilidadeMaxima
            <<std::endl;
     
-    //AQUI FAZ UM COUT DO VECTOR
     for ( i=0; i<rValue.feitico.size(); i++ )
     {
         output <<"   spell["
                <<i
-               <<"]"
-               <<*(rValue.feitico[i])
-               <<endl;    
+               <<"]="
+               <<*rValue.feitico[i];  
     }
     output<<endl;
     return output;
@@ -58,5 +56,8 @@ bool PicaretaDiamante::operator==(const PicaretaDiamante & rValue)
           if (feitico==rValue.feitico)          
              return true;
     return false;
+}
+void PicaretaDiamante::exibir()
+{    std::cout<<*this;
 }
 

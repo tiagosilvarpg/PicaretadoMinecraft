@@ -8,9 +8,11 @@ class PicaretaDiamante : public Picareta
 public:
     PicaretaDiamante();
     PicaretaDiamante(const PicaretaDiamante &);
-    ~PicaretaDiamante();
     
-    //sobrecarga
+    ~PicaretaDiamante();    
+    
+    void exibir();
+    
     const PicaretaDiamante& operator=(const PicaretaDiamante & rValue);
     bool operator==(const PicaretaDiamante & rValue);
     
