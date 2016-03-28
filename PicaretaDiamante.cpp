@@ -45,9 +45,8 @@ ostream & operator<<(ostream & output,const PicaretaDiamante & rValue)
 }
 const PicaretaDiamante& PicaretaDiamante::operator=(const PicaretaDiamante & rValue)
 {
-
-    durabilidadeMaxima=rValue.durabilidadeMaxima;
-    return *this;
+     durabilidade=rValue.durabilidade;
+    forca=rValue.forca;
 }
 bool PicaretaDiamante::operator==(const PicaretaDiamante & rValue)
 {
