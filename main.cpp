@@ -14,6 +14,7 @@ int main()
     char op;
     int selecionada=0;
     vector<Ferramenta*>ferramentas;
+    unsigned int i;
     
     cout<<"insira uma cadeia de blocos (ouro=0,pedra=p,ferro=f,diamante=d,inicio=i)"<<endl;
     cin>>str;
@@ -22,7 +23,18 @@ int main()
     ferramentas.push_back(new PicaretaDiamante);
     ferramentas.push_back(new PicaretaDiamante(*(dynamic_cast<PicaretaDiamante *>(ferramentas[0]) ) ));
     ferramentas.push_back(new PicaretaPedra);
-
+    for (i =0; i<ferramentas.size(); i++)
+    {
+        PicaretaPedra *temp=dynamic_cast<PicaretaPedra*>ferramentas[i];//se a picareta for de pedra , encanta ela automaticamente
+        if temp!=0
+        {
+            cout<<"que picareta ruim,vou encanta-la pra que dure mais um pouco"
+            Spell spellTemp;
+            ferramentas[selecionada]->encantar(spellTemp);
+            cout<<"picareta encantada"<<endl;
+            system("pause");
+        }
+    }
     while (op!='x')
     {
     system("cls");
@@ -56,7 +68,7 @@ int main()
        }
     }
 
-     for (unsigned int i =0; i<ferramentas.size(); i++)
+     for (int i =0; i<ferramentas.size(); i++)
          delete ferramentas[i];
 
 	return 0;
