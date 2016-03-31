@@ -13,6 +13,7 @@ public:
     bool operator==(const PicaretaPedra & rValue);
     void exibir();
     bool consertar(  Ferramenta &);
+    bool minerar( Bloco & target);
 private:
     static int durabilidadeMaxima;
     static int forcaBase;

@@ -73,3 +73,33 @@ bool PicaretaPedra::consertar( Ferramenta & rValue)
     else cout<<"precisa de uma picareta de pedra para isso";
     
 }
+bool PicaretaPedra::minerar(Bloco & target)
+{
+    Spell *spellTemp=0;
+    if (durabilidade==0) 
+    {  std::cout<<"sua picareta esta quebrada";
+       return true;
+    }
+    if (target.getResistencia()<=20)//se for abaixo ou igual ouro
+    {    if (target.damage(forca))
+        {
+           increaseTotalMinerado();
+           spellTemp=Ferramenta::hasSpell("resistente");
+           
+           if (spellTemp!=0)
+           {
+              if (spellTemp->usar())
+                 durabilidade-=rand()%2;
+              else
+              {   cout<<*spellTemp<<" expirou"<<std::endl;
+                  remover(*spellTemp);
+                  system("pause");
+                  durabilidade-=1;
+              }
+           }
+           else durabilidade-=1;
+        }
+    }
+    else cout<<"essa picareta é muito fraca pra isso"<<std::endl;
+    return true;
+}

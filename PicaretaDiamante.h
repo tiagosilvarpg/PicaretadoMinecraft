@@ -13,8 +13,10 @@ public:
     
     void exibir();
     bool consertar(  Ferramenta &);
+    bool minerar( Bloco & target);
     const PicaretaDiamante& operator=(const PicaretaDiamante & rValue);
     bool operator==(const PicaretaDiamante & rValue);
+    
     
 private:
     static int durabilidadeMaxima;

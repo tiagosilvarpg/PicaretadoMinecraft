@@ -31,6 +31,10 @@ bool Bloco::damage(int forca)
       else 
       return false;
            
+}
+int Bloco::getResistencia()
+{
+    return resistencia;
 }   
 void Bloco::init(const string & mtr)
 {

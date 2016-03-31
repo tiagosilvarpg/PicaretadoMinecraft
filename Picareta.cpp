@@ -41,31 +41,7 @@ bool Picareta::operator!=(const Picareta & rValue)
 }
 bool Picareta::usar( Bloco & target )
 {
-    Spell *spellTemp=0;
-    if (durabilidade==0) 
-    {  std::cout<<"sua picareta esta quebrada";
-       return true;
-    }
-    if (target.damage(forca))
-    {
-       increaseTotalMinerado();
-       spellTemp=Ferramenta::hasSpell("resistente");
-       
-       if (spellTemp!=0)
-       {
-          if (spellTemp->usar())
-             durabilidade-=rand()%2;
-          else
-          {   cout<<*spellTemp<<" expirou"<<std::endl;
-              remover(*spellTemp);
-              system("pause");
-              durabilidade-=1;
-          }
-       }
-       else durabilidade-=1;
-    }
-    
-    return true;
+    minerar(target);
 }
 const Picareta& Picareta::operator=(const Picareta & rValue)
 {

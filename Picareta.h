@@ -17,7 +17,7 @@ public:
     static void increaseTotalMinerado();
     
     virtual void exibir()=0;
-    
+    virtual bool minerar( Bloco & target)=0;
     bool usar( Bloco & target );
     bool operator==(const Picareta &);
     bool operator!=(const Picareta & rValue);

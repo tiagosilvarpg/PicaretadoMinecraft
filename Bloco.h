@@ -19,6 +19,7 @@ public:
     static void limparTudo();
     void init(const string &);
     bool isAir();
+    int  getResistencia();
     
     //novo
     bool operator==(const Bloco &);
