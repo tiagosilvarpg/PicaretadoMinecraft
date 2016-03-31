@@ -25,12 +25,12 @@ int main()
     ferramentas.push_back(new PicaretaPedra);
     for (i =0; i<ferramentas.size(); i++)
     {
-        PicaretaPedra *temp=dynamic_cast<PicaretaPedra*>ferramentas[i];//se a picareta for de pedra , encanta ela automaticamente
-        if temp!=0
+        PicaretaPedra *temp=dynamic_cast<PicaretaPedra*>(ferramentas[i]);//se a picareta for de pedra , encanta ela automaticamente
+        if (temp!=0)
         {
-            cout<<"que picareta ruim,vou encanta-la pra que dure mais um pouco"
+            cout<<"que picareta ruim,vou encanta-la pra que dure mais um pouco";
             Spell spellTemp;
-            ferramentas[selecionada]->encantar(spellTemp);
+            ferramentas[i]->encantar(spellTemp);
             cout<<"picareta encantada"<<endl;
             system("pause");
         }
@@ -40,7 +40,7 @@ int main()
     system("cls");
     mundo.refresh();
     ferramentas[selecionada]->exibir();
-    cout <<"mover(a,s,d,w),encantar(e),sair(x),selecionar picareta(1,2,3)"<<std::endl<<":"; 
+    cout <<"mover(a,s,d,w),encantar(e),consertar(c),sair(x),selecionar picareta(1,2,3)"<<std::endl<<":"; 
     cin>>op;
     //op=getch();
     if ((op=='d')||(op=='a')||(op=='w')||(op=='s'))
@@ -65,6 +65,16 @@ int main()
        ferramentas[selecionada]->encantar(spellTemp);
        cout<<"picareta encantada"<<endl;
        system("pause"); 
+       }
+    if (op=='c')
+       {
+               cout<<"consertando picareta numero "<<selecionada+1<<" qual picareta sera gasta para o conserto ?"<<endl;
+               cin>>op;
+               if ((op=='1')||(op=='2')||(op=='3'))
+               {
+                  if (selecionada!=op-1 - '0')
+                     ferramentas[selecionada]->consertar(*ferramentas[(op-1 - '0')]);
+               }
        }
     }
 

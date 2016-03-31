@@ -20,7 +20,7 @@ public:
     bool remover(Spell &);
     
     virtual bool usar( Bloco & target )=0; 
-    virtual bool consertar( const Ferramenta &)=0;
+    virtual bool consertar( Ferramenta &)=0;
     virtual void exibir()=0;
 public:
     int durabilidade;

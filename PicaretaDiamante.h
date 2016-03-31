@@ -12,7 +12,7 @@ public:
     ~PicaretaDiamante();    
     
     void exibir();
-    
+    bool consertar(  Ferramenta &);
     const PicaretaDiamante& operator=(const PicaretaDiamante & rValue);
     bool operator==(const PicaretaDiamante & rValue);
     

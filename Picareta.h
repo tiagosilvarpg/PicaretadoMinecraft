@@ -19,8 +19,6 @@ public:
     virtual void exibir()=0;
     
     bool usar( Bloco & target );
-    bool consertar( const Ferramenta &);
-    //sobrecarga
     bool operator==(const Picareta &);
     bool operator!=(const Picareta & rValue);
     const Picareta & operator=(const Picareta &);

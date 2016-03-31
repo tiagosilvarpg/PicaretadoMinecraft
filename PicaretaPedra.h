@@ -12,6 +12,7 @@ public:
     const PicaretaPedra& operator=(const PicaretaPedra & rValue);
     bool operator==(const PicaretaPedra & rValue);
     void exibir();
+    bool consertar(  Ferramenta &);
 private:
     static int durabilidadeMaxima;
     static int forcaBase;

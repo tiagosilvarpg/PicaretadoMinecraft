@@ -22,17 +22,6 @@ Picareta::Picareta(const Picareta & rValue)
 {
     durabilidade=rValue.durabilidade;
 }
-//OUTROS
-bool Picareta::consertar( const Ferramenta & rValue) 
-{
-    if (typeid(*this).name()==typeid(rValue).name())
-    {
-        durabilidade+=rValue.durabilidade;
-        return true;
-    }
-    return false;
-    
-}
 //FRIENDS
 ostream & operator<<(ostream & output,const Picareta & picareta)
 {

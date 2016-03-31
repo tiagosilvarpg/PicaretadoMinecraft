@@ -2,6 +2,7 @@
 #include <iostream>
 using std::ostream;
 using std::endl;
+using std::cout; 
 //Static
 int PicaretaDiamante::durabilidadeMaxima=1561;
 int PicaretaDiamante::forcaBase=10;
@@ -21,6 +22,7 @@ PicaretaDiamante::~PicaretaDiamante()
 {
     
 }
+
 //OUTROS
 
 //SOBRECARGA
@@ -58,5 +60,18 @@ bool PicaretaDiamante::operator==(const PicaretaDiamante & rValue)
 }
 void PicaretaDiamante::exibir()
 {    std::cout<<*this;
+}
+bool PicaretaDiamante::consertar( Ferramenta & rValue)
+{    
+    PicaretaDiamante* temp=dynamic_cast<PicaretaDiamante*>(&rValue);
+    if (temp!=0)
+    {
+        this->durabilidade+=temp->durabilidade;
+        if (this->durabilidade>this->durabilidadeMaxima)
+           this->durabilidade=this->durabilidadeMaxima ;
+        temp->durabilidade=0;
+    }
+    else cout<<"precisa de uma picareta de diamante para isso";
+    
 }
 
